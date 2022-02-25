@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kviz-projekt", "Kviz-projekt\Kviz-projekt.csproj", "{A5E48FF4-1EC9-41DE-9492-16ABC6143C59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5E48FF4-1EC9-41DE-9492-16ABC6143C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E48FF4-1EC9-41DE-9492-16ABC6143C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E48FF4-1EC9-41DE-9492-16ABC6143C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E48FF4-1EC9-41DE-9492-16ABC6143C59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01398F84-CF00-4629-A45C-9CF2572BCD1A}
+	EndGlobalSection
+EndGlobal
