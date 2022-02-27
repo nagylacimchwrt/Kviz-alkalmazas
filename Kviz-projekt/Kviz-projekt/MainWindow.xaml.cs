@@ -81,9 +81,9 @@ namespace Kviz_projekt
             temakorComboBox.IsEnabled = true;
 
             selectedTantargy = targy;
-            foreach (Temakor temakor in targy.temakorok)
+            foreach (Temakor tema in targy.temakorok)
             {
-                temakorComboBox.Items.Add(temakor.temakornev);
+                temakorComboBox.Items.Add(tema.temakornev);
             }
 
         }
@@ -92,8 +92,8 @@ namespace Kviz_projekt
         {
             if (temakorComboBox.SelectedItem == null || temakorComboBox.Items.Count <= 0) { return; }
             Temakor tema = null;
-            string selectedTemkorString = temakorComboBox.SelectedItem.ToString();
-            selectedTantargy.temakorNyilvantarto.TryGetValue(selectedTemkorString, out tema);
+            string selectedTemakorString = temakorComboBox.SelectedItem.ToString();
+            selectedTantargy.temakorNyilvantarto.TryGetValue(selectedTemakorString, out tema);
 
             if (tema == null) return;
 
@@ -191,6 +191,7 @@ namespace Kviz_projekt
             }
             foreach (RadioButton but in gombok)
             {
+                //if (ujKerdes.kivalasztott != null && but.Content.ToString() == ujKerdes.kivalasztott);
                 if (but.Content.ToString() == ujKerdes.kivalasztott && ujKerdes.kivalasztott != null)
                 {
                     but.IsChecked = true;
@@ -441,10 +442,9 @@ namespace Kviz_projekt
         {
             public string kerdes;
             public string helyesValasz;
-            public string elsoValasz;
-            public string masodikValasz;
-            public string harmadikValasz;
-            public string negyedikValasz;
+            public string valasz2;
+            public string valasz3;
+            public string valasz4;
 
             public string kivalasztott = null;
 
@@ -456,9 +456,9 @@ namespace Kviz_projekt
                 string[] splits = sor.Split(';');
                 kerdes = splits[2];
                 helyesValasz = splits[3];
-                masodikValasz = splits[4];
-                harmadikValasz = splits[5];
-                negyedikValasz = splits[6];
+                valasz2 = splits[4];
+                valasz3 = splits[5];
+                valasz4 = splits[6];
 
                 ValaszokFeltölt();
             }
@@ -466,10 +466,9 @@ namespace Kviz_projekt
             private void ValaszokFeltölt()
             {
                 valaszok.Add(helyesValasz);
-                valaszok.Add(elsoValasz);
-                valaszok.Add(masodikValasz);
-                valaszok.Add(harmadikValasz);
-                valaszok.Add(negyedikValasz);
+                valaszok.Add(valasz2);
+                valaszok.Add(valasz3);
+                valaszok.Add(valasz4);
             }
         }
     }
