@@ -338,6 +338,43 @@ namespace Kviz_projekt
             Nullazas();
             KerdesekBetolt(betoltottKerdesek[9]);
         }
+
+        private void Vegkiertekeles(object sender, RoutedEventArgs e)
+        {
+            kiertekelt = true;
+
+            foreach (RadioButton button in gombok)
+            {
+                if (button.Content.ToString() == currentKerdes.helyesValasz)
+                {
+                    button.Foreground = Brushes.Green;
+                }
+                else
+                {
+                    button.Foreground = Brushes.Red;
+                }
+                button.IsEnabled = false;
+            }
+
+            int helyesValaszok = 0;
+            for (int i = 0; i < betoltottKerdesek.Count; i++)
+            {
+                if (betoltottKerdesek[i].kivalasztott == betoltottKerdesek[i].helyesValasz)
+                {
+                    helyesValaszok++;
+                    oldalValtoGombok[i].Foreground = Brushes.Green;
+                    oldalValtoGombok[i].Foreground = Brushes.Green;
+                }
+                else
+                {
+                    oldalValtoGombok[i].Foreground = Brushes.Red;
+                    oldalValtoGombok[i].Foreground = Brushes.Red;
+                }
+            }
+            MessageBox.Show($"{helyesValaszok}/10 pontod lett. Gratulálok!");
+
+            kilepesGomb.Visibility = Visibility.Visible;
+        }
         
         public class Tantargy
         {

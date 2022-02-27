@@ -28,9 +28,9 @@
             <RadioButton GroupName="Valasz" x:Name="valasz3" Content="Harmadik Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,233,0,0"/>
             <RadioButton GroupName="Valasz" x:Name="valasz4" Content="Negyedik Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,266,0,0"/>
             <Label x:Name="haladasJelzo" Content="1/10" HorizontalAlignment="Left" Margin="366,301,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="visszaGomb" Content="Vissza" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="48,328,0,0"/>
-            <Button x:Name="kovetkezoGomb" Content="Következő" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="595,328,0,0"/>
-            <Button x:Name="vegKiertekelesGomb" Content="Végkiértékelés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="587,364,0,0"/>
+            <Button x:Name="visszaGomb" Content="Vissza" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="48,328,0,0" Click="elozoLap_Betolt"/>
+            <Button x:Name="kovetkezoGomb" Content="Következő" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="595,328,0,0" Click="Kovetkezo_Oldal"/>
+            <Button x:Name="vegKiertekelesGomb" Content="Végkiértékelés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="587,364,0,0" Click="Vegkiertekeles"/>
             <Button x:Name="kilepesGomb" Content="Kilépés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="697,328,0,0"/>
             <Button x:Name="oldalJelzo_1" Content="" HorizontalAlignment="Left" Margin="163,328,0,0" VerticalAlignment="Top" Width="36" RenderTransformOrigin="0.234,0.587" Click="oldalJelzo_1_Click"/>
             <Button x:Name="oldalJelzo_2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="36" Margin="204,328,0,0"/>
