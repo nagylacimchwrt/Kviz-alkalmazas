@@ -222,7 +222,21 @@ namespace Kviz_projekt
                     button.IsEnabled = false;
 
                 }
+                for (int i = 0; i < betoltottKerdesek.Count; i++)
+                {
+                    if (betoltottKerdesek[i].kivalasztott == betoltottKerdesek[i].helyesValasz)
+                    {
+                        oldalValtoGombok[i].Foreground = Brushes.LightGreen;
+                        oldalValtoGombok[i].Background = Brushes.LightGreen;
+                    }
+                    else
+                    {
+                        oldalValtoGombok[i].Foreground = Brushes.Red;
+                        oldalValtoGombok[i].Background = Brushes.Red;
+                    }
+                }
             }
+            oldalValtoGombok[oldalIndex].Background = Brushes.BlueViolet;
         }
 
         private void Kovetkezo_Oldal(object sender, RoutedEventArgs e)
