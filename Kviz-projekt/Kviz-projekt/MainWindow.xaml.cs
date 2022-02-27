@@ -76,7 +76,61 @@ namespace Kviz_projekt
 
             selectedTemakor = tema;
         }
+
+        private void FeladatGeneraloGomb_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedTemakor == null & selectedTantargy == null)
+            {
+                MessageBox.Show("Kérlek válassz tantárgyat és témakört!");
+                return;
+            }
+            else if (selectedTemakor == null)
+            {
+                MessageBox.Show("Kérlek válassz egy témakört!");
+                return;
+            }
+            else if (selectedTantargy == null)
+            {
+                MessageBox.Show("Kérlek válassz egy tantárgyat!");
+                return;
+            }
+            kvizOldal.Visibility = Visibility.Visible;
+            foOldal.Visibility = Visibility.Hidden;
+
+            tantargy.Content = selectedTantargy.temakornev;
+            temakor.Content = selectedTemakor.temakornev;
+            
+            KerdessorGeneral();
+
+            foreach (RadioButton button in gombok)
+            {
+                if (button.Content.ToString() == currentKerdes.helyesValasz)
+                {
+                    button.Foreground = Brushes.Black;
+                }
+                else
+                {
+                    button.Foreground = Brushes.Black;
+                }
+                button.IsEnabled = true;
+            }
+            kiertekelt = false;
+        }
+
+        private void KerdessorGeneral()
+        {
+            Random random = new Random();
+            List<Kerdesek> osszesKerdes = selectedTemakor.kerdesek;
+            List<Kerdesek> tempKerdesek = selectedTemakor.kerdesek;
+            for (int i = 0; i < 10; i++)
+            {
+                int randomIndex = random.Next(0, tempKerdesek.Count);
+                betoltottKerdesek.Add(tempKerdesek[randomIndex]);
+                tempKerdesek.RemoveAt(randomIndex);
+            }
+        }
     }
+
     public class Tantargy
     {
         public Dictionary<string, Temakor> temakorNyilvantarto = new Dictionary<string, Temakor>();

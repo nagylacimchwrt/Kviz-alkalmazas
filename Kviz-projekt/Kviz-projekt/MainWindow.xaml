@@ -13,7 +13,7 @@
             <ComboBox x:Name="tantargyComboBox" HorizontalAlignment="Left" Margin="85,148,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="tantargyComboBox_SelectionChanged"/>
             <Label Content="Témakör:" HorizontalAlignment="Left" Margin="85,200,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="temakorComboBox" HorizontalAlignment="Left" Margin="85,245,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="temakorComboBox_SelectionChanged"/>
-            <Button x:Name="FeladatGeneraloGomb" Content="Feladatok generálása" HorizontalAlignment="Left" Margin="85,317,0,0" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="FeladatGeneraloGomb" Content="Feladatok generálása" HorizontalAlignment="Left" Margin="85,317,0,0" VerticalAlignment="Top" Width="120" Click="FeladatGeneraloGomb_Click"/>
             <Label Content="© Nagy László" HorizontalAlignment="Left" Margin="695,383,0,0" VerticalAlignment="Top"/>
             <Label Content="Válassz egy tantárgyat:" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top"/>
         </Grid>
