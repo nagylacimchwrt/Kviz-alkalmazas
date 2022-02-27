@@ -94,5 +94,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="quiz-hatter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="quiz-hatterkep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="kvizlap-hatter.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
