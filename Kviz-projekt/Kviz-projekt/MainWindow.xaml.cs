@@ -24,8 +24,8 @@ namespace Kviz_projekt
         List<RadioButton> gombok = new List<RadioButton>();
         public Dictionary<string, Tantargy> tantargyNyilvantarto = new Dictionary<string, Tantargy>();
         public List<Tantargy> targyak = new List<Tantargy>();
-        Tantargy selectedTargy = null;
-        Temakor selectedTema = null;
+        Tantargy selectedTantargy = null;
+        Temakor selectedTemakor = null;
         public List<Kerdesek> betoltottKerdesek = new List<Kerdesek>();
         int oldalIndex = 0;
         Kerdesek currentKerdes = null;
@@ -35,6 +35,46 @@ namespace Kviz_projekt
         public MainWindow()
         {
             InitializeComponent();
+            Tantargy fizika = new Tantargy("fizika-adatbazis.txt");
+            tantargyNyilvantarto.Add(fizika.temakornev, fizika);
+            tantargyComboBox.Items.Add(fizika.temakornev);
+        }
+
+        private void tantargyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            temakorComboBox.Items.Clear();
+            temakorComboBox.Items.Clear();
+            selectedTantargy = null;
+            selectedTemakor = null;
+
+            Tantargy targy = null;
+            string selectedTantargyString = tantargyComboBox.SelectedItem.ToString();
+            tantargyNyilvantarto.TryGetValue(selectedTantargyString, out targy);
+
+            temakorComboBox.IsEnabled = false;
+
+            if (targy == null) return;
+
+            temakorComboBox.IsEnabled = true;
+
+            selectedTantargy = targy;
+            foreach (Temakor temakor in targy.temakorok)
+            {
+                temakorComboBox.Items.Add(temakor.temakornev);
+            }
+
+        }
+
+        private void temakorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (temakorComboBox.SelectedItem == null || temakorComboBox.Items.Count <= 0) { return; }
+            Temakor tema = null;
+            string selectedTemkorString = temakorComboBox.SelectedItem.ToString();
+            selectedTantargy.temakorNyilvantarto.TryGetValue(selectedTemkorString, out tema);
+
+            if (tema == null) return;
+
+            selectedTemakor = tema;
         }
     }
     public class Tantargy

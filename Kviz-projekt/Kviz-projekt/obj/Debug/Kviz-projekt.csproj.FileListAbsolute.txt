@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\bin\Debug\Kviz-projekt.exe.config
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\bin\Debug\Kviz-projekt.exe
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\bin\Debug\Kviz-projekt.pdb
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\Kviz-projekt.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\MainWindow.g.cs
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\App.g.cs
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\Kviz-projekt_MarkupCompile.cache
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\Kviz-projekt_MarkupCompile.lref
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\MainWindow.baml
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\Kviz-projekt.g.resources
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\Kviz_projekt.Properties.Resources.resources
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\Kviz-projekt.csproj.GenerateResource.cache
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\Kviz-projekt.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\Kviz-projekt.exe
+C:\Users\user\Desktop\Mechwart\prog gyak 2021-2022\Kviz-Projekt\Kviz-alkalmazas\Kviz-projekt\Kviz-projekt\obj\Debug\Kviz-projekt.pdb

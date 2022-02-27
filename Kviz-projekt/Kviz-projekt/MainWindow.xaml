@@ -8,25 +8,25 @@
         Title="Tanulás ellenőrző kvíz" Height="450" Width="800">
     <Grid>
         <!--Kezdőlap-->
-        <Grid x:Name="foOldal" Visibility="Hidden">
+        <Grid x:Name="foOldal" Visibility="Visible">
             <Label Content="Tantárgy:" HorizontalAlignment="Left" Margin="85,100,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="tantargyComboBox" HorizontalAlignment="Left" Margin="85,148,0,0" VerticalAlignment="Top" Width="120"/>
+            <ComboBox x:Name="tantargyComboBox" HorizontalAlignment="Left" Margin="85,148,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="tantargyComboBox_SelectionChanged"/>
             <Label Content="Témakör:" HorizontalAlignment="Left" Margin="85,200,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="temakorComboBox" HorizontalAlignment="Left" Margin="85,245,0,0" VerticalAlignment="Top" Width="120"/>
+            <ComboBox x:Name="temakorComboBox" HorizontalAlignment="Left" Margin="85,245,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="temakorComboBox_SelectionChanged"/>
             <Button x:Name="FeladatGeneraloGomb" Content="Feladatok generálása" HorizontalAlignment="Left" Margin="85,317,0,0" VerticalAlignment="Top" Width="120"/>
             <Label Content="© Nagy László" HorizontalAlignment="Left" Margin="695,383,0,0" VerticalAlignment="Top"/>
             <Label Content="Válassz egy tantárgyat:" HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top"/>
         </Grid>
 
         <!--Kvíz oldal része-->
-        <Grid x:Name="kvizOldal" Visibility="Visible">
+        <Grid x:Name="kvizOldal" Visibility="Hidden">
             <Label x:Name="tantargy" Content="Tantárgy" HorizontalAlignment="Left" Margin="366,22,0,0" VerticalAlignment="Top"/>
             <Label x:Name="temakor" Content="Témakör" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="366,61,0,0"/>
             <Label x:Name="kerdesLabel" Content="Kérdés" HorizontalAlignment="Left" Margin="366,126,0,0" VerticalAlignment="Top" Width="55"/>
-            <RadioButton x:Name="valasz1" Content="Első Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,175,0,0"/>
-            <RadioButton x:Name="valasz2" Content="Második Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,205,0,0"/>
-            <RadioButton x:Name="valasz3" Content="Harmadik Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,233,0,0"/>
-            <RadioButton x:Name="valasz4" Content="Negyedik Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,266,0,0"/>
+            <RadioButton GroupName="Valasz" x:Name="valasz1" Content="Első Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,175,0,0"/>
+            <RadioButton GroupName="Valasz" x:Name="valasz2" Content="Második Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,205,0,0"/>
+            <RadioButton GroupName="Valasz" x:Name="valasz3" Content="Harmadik Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,233,0,0"/>
+            <RadioButton GroupName="Valasz" x:Name="valasz4" Content="Negyedik Válasz" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,266,0,0"/>
             <Label x:Name="haladasJelzo" Content="1/10" HorizontalAlignment="Left" Margin="366,301,0,0" VerticalAlignment="Top"/>
             <Button x:Name="visszaGomb" Content="Vissza" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="48,328,0,0"/>
             <Button x:Name="kovetkezoGomb" Content="Következő" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="595,328,0,0"/>
