@@ -32,7 +32,7 @@
             <Button x:Name="kovetkezoGomb" Content="Következő" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="595,328,0,0"/>
             <Button x:Name="vegKiertekelesGomb" Content="Végkiértékelés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="587,364,0,0"/>
             <Button x:Name="kilepesGomb" Content="Kilépés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="697,328,0,0"/>
-            <Button x:Name="oldalJelzo_1" Content="" HorizontalAlignment="Left" Margin="163,328,0,0" VerticalAlignment="Top" Width="36" RenderTransformOrigin="0.234,0.587"/>
+            <Button x:Name="oldalJelzo_1" Content="" HorizontalAlignment="Left" Margin="163,328,0,0" VerticalAlignment="Top" Width="36" RenderTransformOrigin="0.234,0.587" Click="oldalJelzo_1_Click"/>
             <Button x:Name="oldalJelzo_2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="36" Margin="204,328,0,0"/>
             <Button x:Name="oldalJelzo_3" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="36" Margin="245,328,0,0"/>
             <Button x:Name="oldalJelzo_4" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="36" Margin="286,328,0,0"/>

@@ -35,9 +35,32 @@ namespace Kviz_projekt
         public MainWindow()
         {
             InitializeComponent();
+            oldalValtoGombok.Add(oldalJelzo_1);
+            oldalValtoGombok.Add(oldalJelzo_2);
+            oldalValtoGombok.Add(oldalJelzo_3);
+            oldalValtoGombok.Add(oldalJelzo_4);
+            oldalValtoGombok.Add(oldalJelzo_5);
+            oldalValtoGombok.Add(oldalJelzo_6);
+            oldalValtoGombok.Add(oldalJelzo_7);
+            oldalValtoGombok.Add(oldalJelzo_8);
+            oldalValtoGombok.Add(oldalJelzo_9);
+            oldalValtoGombok.Add(oldalJelzo_10);
+            
+            
+            gombok.Add(valasz1);
+            gombok.Add(valasz2);
+            gombok.Add(valasz3);
+            gombok.Add(valasz4);
+
+            temakorComboBox.IsEnabled = false;
+
             Tantargy fizika = new Tantargy("fizika-adatbazis.txt");
             tantargyNyilvantarto.Add(fizika.temakornev, fizika);
             tantargyComboBox.Items.Add(fizika.temakornev);
+
+            Tantargy physics = new Tantargy("physics-adatbazis.txt");
+            tantargyNyilvantarto.Add(physics.temakornev, physics);
+            tantargyComboBox.Items.Add(physics.temakornev);
         }
 
         private void tantargyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,7 +122,7 @@ namespace Kviz_projekt
 
             tantargy.Content = selectedTantargy.temakornev;
             temakor.Content = selectedTemakor.temakornev;
-            
+
             KerdessorGeneral();
 
             foreach (RadioButton button in gombok)
@@ -128,88 +151,274 @@ namespace Kviz_projekt
                 betoltottKerdesek.Add(tempKerdesek[randomIndex]);
                 tempKerdesek.RemoveAt(randomIndex);
             }
+            KerdesekBetolt(betoltottKerdesek[0]);
+            oldalIndex = 0;
         }
-    }
 
-    public class Tantargy
-    {
-        public Dictionary<string, Temakor> temakorNyilvantarto = new Dictionary<string, Temakor>();
-        public List<Temakor> temakorok = new List<Temakor>();
-        public string temakornev;
-
-        public Tantargy(string eleresUtja)
+        private void KerdesekBetolt(Kerdesek ujKerdes)
         {
-            string[] fajl = File.ReadAllLines(eleresUtja);
-
-            temakornev = fajl[0].Split(';')[0];
-
-            List<string> temaKorok = new List<string>();
-            foreach (string sor in fajl)
+            Random random = new Random();
+            List<string> tempValasz = new List<string>();
+            currentKerdes = ujKerdes;
+            foreach (var item in ujKerdes.valaszok)
             {
-                string temaKorNev = sor.Split(';')[1];
-                if (!temaKorok.Contains(temaKorNev))
+                tempValasz.Add(item);
+            }
+            List<RadioButton> tempButton = new List<RadioButton>();
+            tempButton = gombok;
+
+            if (ujKerdes.sorrend.Count <= 0)
+            {
+                for (int i = 0; i < 4; i++)
                 {
-                    temaKorok.Add(temaKorNev);
-                    Temakor ujTema = new Temakor(temaKorNev, fajl);
-                    temakorNyilvantarto.Add(ujTema.temakornev, ujTema);
-                    temakorok.Add(ujTema);
+
+                    int randomIndex = random.Next(0, tempValasz.Count);
+
+                    gombok[i].Content = tempValasz[randomIndex];
+                    ujKerdes.sorrend.Add(tempValasz[randomIndex]);
+                    tempValasz.RemoveAt(randomIndex);
+
+
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    gombok[i].Content = ujKerdes.sorrend[i];
+                }
+            }
+            foreach (RadioButton but in gombok)
+            {
+                if (but.Content.ToString() == ujKerdes.kivalasztott && ujKerdes.kivalasztott != null)
+                {
+                    but.IsChecked = true;
+                }
+            }
+
+            kerdesLabel.Content = ujKerdes.kerdes;
+            oldalIndex = betoltottKerdesek.IndexOf(ujKerdes);
+            haladasJelzo.Content = $"{oldalIndex + 1}/10";
+            foreach (Button button in oldalValtoGombok)
+            {
+                button.Background = Brushes.White;
+            }
+
+
+            if (kiertekelt)
+            {
+                foreach (RadioButton button in gombok)
+                {
+                    if (button.Content.ToString() == ujKerdes.helyesValasz)
+                    {
+                        button.Foreground = Brushes.Green;
+                    }
+                    else
+                    {
+                        button.Foreground = Brushes.Red;
+                    }
+                    button.IsEnabled = false;
+
                 }
             }
         }
-    }
 
-    public class Temakor
-    {
-        public List<Kerdesek> kerdesek = new List<Kerdesek>();
-        public string temakornev;
-
-        public Temakor(string temakornev, string[] fajl)
+        private void Kovetkezo_Oldal(object sender, RoutedEventArgs e)
         {
-            this.temakornev = temakornev;
-            foreach (string sor in fajl)
+            if (oldalIndex + 1 >= betoltottKerdesek.Count) return;
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[oldalIndex + 1]);
+
+        }
+
+        private void elozoLap_Betolt(object sender, RoutedEventArgs e)
+        {
+            if (oldalIndex <= 0) return;
+            KerdesekBetolt(betoltottKerdesek[oldalIndex - 1]);
+        }
+        private void Valasz1_Checked(object sender, RoutedEventArgs e)
+        {
+            currentKerdes.kivalasztott = valasz1.Content.ToString();
+            valasz1.Background = Brushes.LightGray;
+            valasz2.Background = Brushes.Transparent;
+            valasz3.Background = Brushes.Transparent;
+            valasz4.Background = Brushes.Transparent;
+
+        }
+
+        private void Valasz2_Checked(object sender, RoutedEventArgs e)
+        {
+            currentKerdes.kivalasztott = valasz2.Content.ToString();
+            valasz2.Background = Brushes.LightGray;
+            valasz1.Background = Brushes.Transparent;
+            valasz3.Background = Brushes.Transparent;
+            valasz4.Background = Brushes.Transparent;
+
+        }
+
+        private void Valasz3_Checked(object sender, RoutedEventArgs e)
+        {
+            currentKerdes.kivalasztott = valasz3.Content.ToString();
+            valasz3.Background = Brushes.LightGray;
+            valasz2.Background = Brushes.Transparent;
+            valasz1.Background = Brushes.Transparent;
+            valasz4.Background = Brushes.Transparent;
+        }
+
+        private void Valasz4_Checked(object sender, RoutedEventArgs e)
+        {
+            currentKerdes.kivalasztott = valasz4.Content.ToString();
+            valasz4.Background = Brushes.LightGray;
+            valasz2.Background = Brushes.Transparent;
+            valasz3.Background = Brushes.Transparent;
+            valasz1.Background = Brushes.Transparent;
+
+        }
+
+        private void Nullazas()
+        {
+            valasz1.IsChecked = false;
+            valasz2.IsChecked = false;
+            valasz3.IsChecked = false;
+            valasz4.IsChecked = false;
+            valasz1.Background = Brushes.Transparent;
+            valasz2.Background = Brushes.Transparent;
+            valasz3.Background = Brushes.Transparent;
+            valasz4.Background = Brushes.Transparent;
+        }
+        private void oldalJelzo_1_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[0]);
+        }
+
+        private void oldalJelzo_2_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[1]);
+        }
+        private void oldalJelzo_3_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[2]);
+        }
+        private void oldalJelzo_4_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[3]);
+        }
+        private void oldalJelzo_5_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[4]);
+        }
+        private void oldalJelzo_6_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[5]);
+        }
+        private void oldalJelzo_7_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[6]);
+        }
+        private void oldalJelzo_8_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[7]);
+        }
+        private void oldalJelzo_9_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[8]);
+        }
+        private void oldalJelzo_10_Click(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            KerdesekBetolt(betoltottKerdesek[9]);
+        }
+        
+        public class Tantargy
+        {
+            public Dictionary<string, Temakor> temakorNyilvantarto = new Dictionary<string, Temakor>();
+            public List<Temakor> temakorok = new List<Temakor>();
+            public string temakornev;
+
+            public Tantargy(string eleresUtja)
             {
-                if (sor.Split(';')[1] == temakornev)
+                string[] fajl = File.ReadAllLines(eleresUtja);
+
+                temakornev = fajl[0].Split(';')[0];
+
+                List<string> temaKorok = new List<string>();
+                foreach (string sor in fajl)
                 {
-                    Kerdesek kerdes = new Kerdesek(sor);
-                    kerdesek.Add(kerdes);
+                    string temaKorNev = sor.Split(';')[1];
+                    if (!temaKorok.Contains(temaKorNev))
+                    {
+                        temaKorok.Add(temaKorNev);
+                        Temakor ujTema = new Temakor(temaKorNev, fajl);
+                        temakorNyilvantarto.Add(ujTema.temakornev, ujTema);
+                        temakorok.Add(ujTema);
+                    }
                 }
             }
         }
-    }
 
-    public class Kerdesek
-    {
-        public string kerdes;
-        public string helyesValasz;
-        public string elsoValasz;
-        public string masodikValasz;
-        public string harmadikValasz;
-        public string negyedikValasz;
-
-        public string kivalasztott = null;
-
-        public List<string> sorrend = new List<string>();
-        public List<string> valaszok = new List<string>();
-
-        public Kerdesek(string sor)
+        public class Temakor
         {
-            string[] splits = sor.Split(';');
-            kerdes = splits[2];
-            helyesValasz = splits[3];
-            masodikValasz = splits[4];
-            harmadikValasz = splits[5];
-            negyedikValasz = splits[6];
+            public List<Kerdesek> kerdesek = new List<Kerdesek>();
+            public string temakornev;
 
-            ValaszokFeltölt();
+            public Temakor(string temakornev, string[] fajl)
+            {
+                this.temakornev = temakornev;
+                foreach (string sor in fajl)
+                {
+                    if (sor.Split(';')[1] == temakornev)
+                    {
+                        Kerdesek kerdes = new Kerdesek(sor);
+                        kerdesek.Add(kerdes);
+                    }
+                }
+            }
         }
 
-        private void ValaszokFeltölt()
+        public class Kerdesek
         {
-            valaszok.Add(helyesValasz);
-            valaszok.Add(elsoValasz);
-            valaszok.Add(masodikValasz);
-            valaszok.Add(harmadikValasz);
-            valaszok.Add(negyedikValasz);
+            public string kerdes;
+            public string helyesValasz;
+            public string elsoValasz;
+            public string masodikValasz;
+            public string harmadikValasz;
+            public string negyedikValasz;
+
+            public string kivalasztott = null;
+
+            public List<string> sorrend = new List<string>();
+            public List<string> valaszok = new List<string>();
+
+            public Kerdesek(string sor)
+            {
+                string[] splits = sor.Split(';');
+                kerdes = splits[2];
+                helyesValasz = splits[3];
+                masodikValasz = splits[4];
+                harmadikValasz = splits[5];
+                negyedikValasz = splits[6];
+
+                ValaszokFeltölt();
+            }
+
+            private void ValaszokFeltölt()
+            {
+                valaszok.Add(helyesValasz);
+                valaszok.Add(elsoValasz);
+                valaszok.Add(masodikValasz);
+                valaszok.Add(harmadikValasz);
+                valaszok.Add(negyedikValasz);
+            }
         }
     }
 }
