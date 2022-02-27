@@ -177,9 +177,6 @@ namespace Kviz_projekt
                     gombok[i].Content = tempValasz[randomIndex];
                     ujKerdes.sorrend.Add(tempValasz[randomIndex]);
                     tempValasz.RemoveAt(randomIndex);
-
-
-
                 }
             }
             else
