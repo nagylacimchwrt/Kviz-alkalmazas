@@ -375,6 +375,21 @@ namespace Kviz_projekt
 
             kilepesGomb.Visibility = Visibility.Visible;
         }
+
+        private void kilepes(object sender, RoutedEventArgs e)
+        {
+            Nullazas();
+            betoltottKerdesek.Clear();
+            oldalIndex = 0;
+
+            kvizOldal.Visibility = Visibility.Hidden;
+            foOldal.Visibility = Visibility.Visible;
+
+            kilepesGomb.Visibility = Visibility.Hidden;
+            selectedTemakor = null;
+            selectedTantargy = null;
+            Close();
+        }
         
         public class Tantargy
         {
